@@ -1,0 +1,102 @@
+(lldb) clru -gcinfo 00007FFF7CCB1E65
+Normal JIT generated code
+SocketEngineCodegenRepro.FakeSocketEngine.EventLoop()
+ilAddr is 00007FFFF7E13374 pImport is 0000560DBF4FB8D0
+Begin 00007FFF7CCB1E40, size af
+
+/home/anton/dev/sandbox/SocketEngineCodegenRepro/FakeSocketEngine.cs @ 80:
+Prolog size: 0
+Security object: <none>
+GS cookie: <none>
+PSPSym: <none>
+Generics inst context: <none>
+PSP slot: <none>
+GenericInst slot: <none>
+Varargs: 0
+Frame pointer: rbp
+Wants Report Only Leaf: 0
+Size of parameter area: 0
+Return Kind: Scalar
+Code size: af
+Untracked: +rbp-38
+00007fff7ccb1e40 55                   push    rbp
+00007fff7ccb1e41 4157                 push    r15
+00007fff7ccb1e43 4156                 push    r14
+00007fff7ccb1e45 4155                 push    r13
+00007fff7ccb1e47 4154                 push    r12
+00007fff7ccb1e49 53                   push    rbx
+00007fff7ccb1e4a 4883ec18             sub     rsp, 0x18
+00007fff7ccb1e4e 488d6c2440           lea     rbp, [rsp + 0x40]
+00007fff7ccb1e53 33c0                 xor     eax, eax
+00007fff7ccb1e55 488945c8             mov     qword ptr [rbp - 0x38], rax
+00007fff7ccb1e59 488945d0             mov     qword ptr [rbp - 0x30], rax
+00007fff7ccb1e5d 488bdf               mov     rbx, rdi
+00000020 interruptible
+00000020 +rbx
+00007fff7ccb1e60 e8c3dfffff           call    0x7fff7ccafe28 (SocketEngineCodegenRepro.FakeSocketEngine.WaitForSocketEvents(), mdToken: 0000000006000007)
+
+/home/anton/dev/sandbox/SocketEngineCodegenRepro/FakeSocketEngine.cs @ 81:
+>>> 00007fff7ccb1e65 488b7b18             mov     rdi, qword ptr [rbx + 0x18]
+00000029 +rdi
+00007fff7ccb1e69 4533f6               xor     r14d, r14d
+00007fff7ccb1e6c 448b7f08             mov     r15d, dword ptr [rdi + 0x8]
+00007fff7ccb1e70 4585ff               test    r15d, r15d
+00007fff7ccb1e73 7eeb                 jle     0x7fff7ccb1e60
+00000035 -rdi
+00007fff7ccb1e75 48837b1000           cmp     qword ptr [rbx + 0x10], 0x0
+00007fff7ccb1e7a 7460                 je      0x7fff7ccb1edc
+
+/home/anton/dev/sandbox/SocketEngineCodegenRepro/FakeSocketEngine.cs @ 85:
+00007fff7ccb1e7c 488b7b10             mov     rdi, qword ptr [rbx + 0x10]
+00000040 +rdi
+00007fff7ccb1e80 837f0800             cmp     dword ptr [rdi + 0x8], 0x0
+00007fff7ccb1e84 7663                 jbe     0x7fff7ccb1ee9
+00007fff7ccb1e86 4c8b6710             mov     r12, qword ptr [rdi + 0x10]
+0000004a +r12
+00007fff7ccb1e8a 41bd01000000         mov     r13d, 0x1
+
+/home/anton/dev/sandbox/SocketEngineCodegenRepro/FakeSocketEngine.cs @ 87:
+00007fff7ccb1e90 488b4308             mov     rax, qword ptr [rbx + 0x8]
+00000054 +rax
+00007fff7ccb1e94 488bf8               mov     rdi, rax
+00007fff7ccb1e97 48897dc0             mov     qword ptr [rbp - 0x40], rdi
+0000005b +rbp-40
+00007fff7ccb1e9b 488b7710             mov     rsi, qword ptr [rdi + 0x10]
+0000005f +rsi
+00007fff7ccb1e9f 488d55c8             lea     rdx, [rbp - 0x38]
+00000063 +rdx(interior)
+00007fff7ccb1ea3 4c8922               mov     qword ptr [rdx], r12
+00007fff7ccb1ea6 44896a08             mov     dword ptr [rdx + 0x8], r13d
+00007fff7ccb1eaa 488bfe               mov     rdi, rsi
+00007fff7ccb1ead 488b75c8             mov     rsi, qword ptr [rbp - 0x38]
+00007fff7ccb1eb1 488b55d0             mov     rdx, qword ptr [rbp - 0x30]
+00000075 -rdx(interior)
+00007fff7ccb1eb5 393f                 cmp     dword ptr [rdi], edi
+00007fff7ccb1eb7 e8b4e7ffff           call    0x7fff7ccb0670 (System.Collections.Concurrent.ConcurrentQueueSegment`1[[SocketEngineCodegenRepro.FakeSocketEngine+SocketIOEvent, SocketEngineCodegenRepro]].TryEnqueue(SocketIOEvent), mdToken: 0000000006005960)
+0000007c -rdi -rsi -rax
+00007fff7ccb1ebc 85c0                 test    eax, eax
+00007fff7ccb1ebe 751c                 jne     0x7fff7ccb1edc
+00007fff7ccb1ec0 488b7dc0             mov     rdi, qword ptr [rbp - 0x40]
+00000084 +rdi
+00007fff7ccb1ec4 488d75c8             lea     rsi, [rbp - 0x38]
+00000088 +rsi(interior)
+00007fff7ccb1ec8 4c8926               mov     qword ptr [rsi], r12
+00007fff7ccb1ecb 44896e08             mov     dword ptr [rsi + 0x8], r13d
+00007fff7ccb1ecf 488b75c8             mov     rsi, qword ptr [rbp - 0x38]
+00000093 -rsi(interior) +rsi
+00007fff7ccb1ed3 488b55d0             mov     rdx, qword ptr [rbp - 0x30]
+00000097 -rbp-40
+00007fff7ccb1ed7 e894e6ffff           call    0x7fff7ccb0570 (System.Collections.Concurrent.ConcurrentQueue`1[[SocketEngineCodegenRepro.FakeSocketEngine+SocketIOEvent, SocketEngineCodegenRepro]].EnqueueSlow(SocketIOEvent), mdToken: 000000000600594D)
+
+/home/anton/dev/sandbox/SocketEngineCodegenRepro/FakeSocketEngine.cs @ 89:
+0000009c -r12 -rdi -rsi
+00007fff7ccb1edc 41ffc6               inc     r14d
+
+/home/anton/dev/sandbox/SocketEngineCodegenRepro/FakeSocketEngine.cs @ 81:
+00007fff7ccb1edf 453bfe               cmp     r15d, r14d
+00007fff7ccb1ee2 7f91                 jg      0x7fff7ccb1e75
+00007fff7ccb1ee4 e977ffffff           jmp     0x7fff7ccb1e60
+000000a9 -rbx
+00007fff7ccb1ee9 e802ec3479           call    0x7ffff6000af0 (JitHelp: CORINFO_HELP_RNGCHKFAIL)
+00007fff7ccb1eee cc                   int3
+000000af not interruptible
