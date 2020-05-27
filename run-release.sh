@@ -1,0 +1,1 @@
+lldb -- ~/dotnet exec ./bin/Release/netcoreapp5.0/SocketEngineCodegenRepro.dll
